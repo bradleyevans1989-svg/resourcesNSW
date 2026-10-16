@@ -1,0 +1,9 @@
+# Kept out of this public repo: files with personal or financial details stay in the hub's own file store
+invoices/
+scans/
+docs/RNSWF*.pdf
+docs/RNSWM001.pdf
+*.zip
+screenshots/
+.DS_Store
+node_modules/
