@@ -18,4 +18,4 @@ Not in this repo, because they hold personal or financial details: service invoi
 
 ## Data and logins
 
-Until the backend exists, everything people enter is saved in the browser of the device they use (localStorage, plus IndexedDB for uploaded files). Logins are prototype accounts only: staff use the password `demo`, and drivers start on PIN `0000`.
+Until the backend exists, everything people enter is saved in the browser of the device they use (localStorage, plus IndexedDB for uploaded files). Logins are prototype accounts only. Ask the office for test logins.

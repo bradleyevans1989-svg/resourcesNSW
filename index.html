@@ -545,13 +545,11 @@ function signIn(err=""){
   const body = p==="staff" ? `${back}<div class="eyebrow">Staff log on</div>
     <form id="login">
       <div class="field"><label for="u">Username</label><input type="text" id="u" autocomplete="username" placeholder="Brett, David, Impact or RNSW"></div>
-      <div class="field"><label for="p">Password</label><input type="password" id="p" autocomplete="current-password" placeholder="demo"></div>
+      <div class="field"><label for="p">Password</label><input type="password" id="p" autocomplete="current-password"></div>
       ${err?`<div class="err">${esc(err)}</div>`:""}
       <button class="btn primary" type="submit" style="justify-content:center">Log on</button>
     </form>
-    <div class="demo"><div class="eyebrow">Prototype accounts, password "demo"</div>
-      <div class="accts">${USERS.filter(u=>u.role!=="driver").map(u=>`<button class="acct" data-acct="${u.id}"><b>${esc(u.name)}</b><small>${esc(u.blurb)}</small></button>`).join("")}</div>
-    </div>`
+`
   : p==="driver" ? `${back}<div class="eyebrow">Driver log on</div>
     <form id="drvLogin" novalidate>
       <div class="field"><label for="dv_name">Driver number</label><div class="hint">D and your usual truck's rego, like DABC123. The office can tell you yours.</div><input type="text" id="dv_name" name="name" value="${esc(state.drvName||"")}" autocomplete="off" autocapitalize="characters" spellcheck="false"></div>
@@ -1879,7 +1877,7 @@ app.addEventListener("submit", async e=>{
   if(e.target.id==="login"){
     const name = document.getElementById("u").value.trim().toLowerCase(), pw = document.getElementById("p").value;
     const u = USERS.find(x=>x.id===name || x.name.toLowerCase()===name);
-    if(!u || pw.trim().toLowerCase()!=="demo"){ state.loginErr = "That username and password don't match. Try one of the prototype accounts below."; render(); return; }
+    if(!u || pw.trim().toLowerCase()!=="demo"){ state.loginErr = "That username and password don't match. Check with the office."; render(); return; }
     login(u);
   }
   if(e.target.id==="sheet"){
